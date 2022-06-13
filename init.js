@@ -8,6 +8,7 @@ const box2 = document.getElementById("box2")
 const box3 = document.getElementById("box3")
 const rewardImage = document.getElementById("imgReward")
 const title = document.getElementById("title")
+// testing comment
 
 const player = new Player()
 
