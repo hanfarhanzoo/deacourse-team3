@@ -8,7 +8,8 @@ const box2 = document.getElementById("box2")
 const box3 = document.getElementById("box3")
 const rewardImage = document.getElementById("imgReward")
 const title = document.getElementById("title")
-// testing commit hanif
+const rewardSection = document.getElementById("reward")
+
 
 const player = new Player()
 
@@ -46,8 +47,9 @@ function reward() {
 function winner() {
   if (box1.textContent == box2.textContent && box1.textContent == box3.textContent) {
     location.href = "#reward"
-  } else {
     reward()
+  } else {
+    alert('Anda kalah! silakan coba lagi.')
     console.log('lose')
   }
 }
@@ -75,9 +77,13 @@ onload = function () {
   if (token && token != null) {
     registerForm.style.display = "none"
     logoutForm.style.display = "block"
+    startSection.style.display = "block"
+    rewardSection.style.display = "block"
   } else {
     registerForm.style.display = "block"
     logoutForm.style.display = "none"
+    startSection.style.display = "none"
+    rewardSection.style.display = "none"
   }
 }
 

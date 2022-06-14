@@ -23,6 +23,8 @@ class Player {
       sessionStorage.setItem('token', this.generateToken())
       registerForm.style.display = "none"
       logoutForm.style.display = "block"
+      startSection.style.display = "block"
+      rewardSection.style.display = "block"
       title.textContent = `Hello ${username.value} !`
       setTimeout(function() {
         location.href="#start"
