@@ -25,6 +25,8 @@ class Player {
       logoutForm.style.display = "block"
       startSection.style.display = "block"
       rewardSection.style.display = "block"
+      navbar.style.display = "block"
+      
       title.textContent = `Hello ${username.value} !`
       setTimeout(function() {
         location.href="#start"

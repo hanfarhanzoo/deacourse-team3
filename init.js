@@ -6,9 +6,15 @@ const startSection = document.getElementById("start")
 const box1 = document.getElementById("box1")
 const box2 = document.getElementById("box2")
 const box3 = document.getElementById("box3")
+const box4 = document.getElementById("box4")
+const box5 = document.getElementById("box5")
 const rewardImage = document.getElementById("imgReward")
 const title = document.getElementById("title")
 const rewardSection = document.getElementById("reward")
+const navbar = document.getElementById("navbar")
+const levelEasy = document.getElementById("level-easy")
+const levelMedium = document.getElementById("level-medium")
+const levelHard = document.getElementById("level-hard")
 
 
 const player = new Player()
@@ -17,6 +23,8 @@ let default_option = ['😍', '🤣', '😱']
 box1.textContent = default_option[0]
 box2.textContent = default_option[1]
 box3.textContent = default_option[2]
+box4.textContent = default_option[0]
+box5.textContent = default_option[1]
 
 function dice() {
   let gacha = []
@@ -74,16 +82,20 @@ function start() {
 onload = function () {
   const token = sessionStorage.getItem('token')
 
+  // levelMedium.style.display = ""
+
   if (token && token != null) {
     registerForm.style.display = "none"
     logoutForm.style.display = "block"
     startSection.style.display = "block"
     rewardSection.style.display = "block"
+    navbar.style.display = "block"
   } else {
     registerForm.style.display = "block"
     logoutForm.style.display = "none"
     startSection.style.display = "none"
     rewardSection.style.display = "none"
+    navbar.style.display = "none"
   }
 }
 
