@@ -15,9 +15,12 @@ const navbar = document.getElementById("navbar")
 const levelEasy = document.getElementById("level-easy")
 const levelMedium = document.getElementById("level-medium")
 const levelHard = document.getElementById("level-hard")
+const stopButton = document.getElementById("stop")
+const nameAndToken = document.getElementById("nameAndToken")
 
 
 const player = new Player()
+
 
 let default_option = ['😍', '🤣', '😱']
 box1.textContent = default_option[0]
@@ -63,26 +66,26 @@ function winner() {
 }
 
 function start() {
-  //selama
-  const rolling = setInterval(function () {
-    const result = dice()
-    box1.textContent = result[0]
-    box2.textContent = result[1]
-    box3.textContent = result[2]
-  }, 100)
+  
+  rolling
 
   //ketika
-  setTimeout(function () {
-    clearInterval(rolling)
-    winner()
-  }, 3000)
-
+    setTimeout(function () {
+      clearInterval(rolling)
+      winner()
+    }, 5000)
 }
 
-onload = function () {
-  const token = sessionStorage.getItem('token')
+  function stop(){
+    clearInterval(rolling)
+    winner()
+  }
 
-  // levelMedium.style.display = ""
+onload = function () {
+  const token = sessionStorage.getItem('keyToken')
+  const username = sessionStorage.getItem('keyUsername')
+  levelMedium.style.display = "none"
+  levelHard.style.display = "none"
 
   if (token && token != null) {
     registerForm.style.display = "none"
@@ -90,6 +93,8 @@ onload = function () {
     startSection.style.display = "block"
     rewardSection.style.display = "block"
     navbar.style.display = "block"
+    title.textContent = `Hello ${username.value} !`
+    nameAndToken.textContent= "Test"
   } else {
     registerForm.style.display = "block"
     logoutForm.style.display = "none"
@@ -97,6 +102,22 @@ onload = function () {
     rewardSection.style.display = "none"
     navbar.style.display = "none"
   }
+}
+
+function levelEasyButton(){
+  levelEasy.style.display = "flex"
+  levelMedium.style.display = "none"
+  levelHard.style.display = "none"
+}
+function levelMediumButton(){
+  levelEasy.style.display = "none"
+  levelMedium.style.display = "flex"
+  levelHard.style.display = "none"
+}
+function levelHardButton(){
+  levelEasy.style.display = "none"
+  levelMedium.style.display = "none"
+  levelHard.style.display = "flex"
 }
 
 function register() {

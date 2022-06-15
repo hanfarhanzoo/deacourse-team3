@@ -20,14 +20,15 @@ class Player {
     }
   
     get register() {
-      sessionStorage.setItem('token', this.generateToken())
+      sessionStorage.setItem('keyToken', this.generateToken())
+      sessionStorage.setItem('keyUsername', username.value)
       registerForm.style.display = "none"
       logoutForm.style.display = "block"
       startSection.style.display = "block"
       rewardSection.style.display = "block"
       navbar.style.display = "block"
-      
-      title.textContent = `Hello ${username.value} !`
+      nameAndToken.textContent= `waduh`
+      title.textContent = `Hello ${keyUsername} !`
       setTimeout(function() {
         location.href="#start"
       }, 500)
