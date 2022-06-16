@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>Deacode-Team 03 </title>
+    <title>Deacode - Team 3</title>
   </head>
   <body>
     <section id="home">
       <div class="container">
         <!-- navigation bar start -->
-        <div class="navwrapper">
+        <div class="navwrapper" id="navbar">
           <ul class="navigation">
             <li class="nav">
               <a href="#home" class="navlink">HOME</a>
@@ -20,36 +20,61 @@
               <a href="#start" class="navlink">START</a>
             </li>
             <li class="nav">
-              <a href="#reward" class="navlink">👇REWARD BUAT ANDA👇</a>
+              <a href="#reward" class="navlink">REWARD</a>
+            </li>
+            <li class="navText">
+              <a id="nameAndToken"></a>
             </li>
           </ul>
         </div>
-        <div class="contentwrapper">
-          <div class="title" id="title">Register Here</div>
-          <div id="registerForm">
-            <input type="text" placeholder="username" id="username" />
-            <button onclick="register()">Register</button>
+        <div class="contentwrapper" id="contentwrapper-title">
+          <div class="register-box">
+            <div class="title" id="title">Register Here</div>
+            <div id="registerForm">
+              <input type="text" placeholder="username" id="username" />
+              <button onclick="register()">Register</button>
+            </div>
+            <button onclick="logout()" id="logoutForm">Logout</button>
           </div>
-          <button onclick="logout()" id="logoutForm">Logout</button>
         </div>
       </div>
     </section>
     <section id="start">
       <div class="container red">
-        <div class="gamewrapper">
+        <div class="gamewrapper" id="level-easy">
           <div class="box" id="box1"></div>
           <div class="box" id="box2"></div>
           <div class="box" id="box3"></div>
         </div>
+        <div class="gamewrapper" id="level-medium">
+          <div class="box" id="box1"></div>
+          <div class="box" id="box2"></div>
+          <div class="box" id="box3"></div>
+          <div class="box" id="box4"></div>
+        </div>
+        <div class="gamewrapper" id="level-hard">
+          <div class="box" id="box1"></div>
+          <div class="box" id="box2"></div>
+          <div class="box" id="box3"></div>
+          <div class="box" id="box4"></div>
+          <div class="box" id="box5"></div>
+        </div>
+        <div class="buttonwrapper">
+          <button class="levelButton" onclick="levelEasyButton()">Easy</button>
+          <button class="levelButton" onclick="levelMediumButton()">Medium</button>
+          <button class="levelButton" onclick="levelHardButton()">Hard</button>
+        </div>
+        <br>
         <div class="buttonwrapper">
           <button class="startButton" onclick="start()">START</button>
+          <button class="startButton" onclick="stop()">STOP</button>
         </div>
       </div>
     </section>
     <section id="reward">
       <div class="container blue">
         <div class="contentwrapper" id="imgReward">
-          <h1>REWARD</h1>
+          <h1>👇REWARD BUAT ANDA👇</h1>
         </div>
       </div>
     </section>

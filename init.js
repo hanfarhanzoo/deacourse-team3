@@ -6,16 +6,28 @@ const startSection = document.getElementById("start")
 const box1 = document.getElementById("box1")
 const box2 = document.getElementById("box2")
 const box3 = document.getElementById("box3")
+const box4 = document.getElementById("box4")
+const box5 = document.getElementById("box5")
 const rewardImage = document.getElementById("imgReward")
 const title = document.getElementById("title")
-// testing comment
+const rewardSection = document.getElementById("reward")
+const navbar = document.getElementById("navbar")
+const levelEasy = document.getElementById("level-easy")
+const levelMedium = document.getElementById("level-medium")
+const levelHard = document.getElementById("level-hard")
+const stopButton = document.getElementById("stop")
+const nameAndToken = document.getElementById("nameAndToken")
+
 
 const player = new Player()
+
 
 let default_option = ['😍', '🤣', '😱']
 box1.textContent = default_option[0]
 box2.textContent = default_option[1]
 box3.textContent = default_option[2]
+box4.textContent = default_option[0]
+box5.textContent = default_option[1]
 
 function dice() {
   let gacha = []
@@ -46,39 +58,66 @@ function reward() {
 function winner() {
   if (box1.textContent == box2.textContent && box1.textContent == box3.textContent) {
     location.href = "#reward"
-  } else {
     reward()
+  } else {
+    alert('Anda kalah! silakan coba lagi.')
     console.log('lose')
   }
 }
 
 function start() {
-  //selama
-  const rolling = setInterval(function () {
-    const result = dice()
-    box1.textContent = result[0]
-    box2.textContent = result[1]
-    box3.textContent = result[2]
-  }, 100)
+  
+  rolling
 
   //ketika
-  setTimeout(function () {
-    clearInterval(rolling)
-    winner()
-  }, 3000)
-
+    setTimeout(function () {
+      clearInterval(rolling)
+      winner()
+    }, 5000)
 }
 
+  function stop(){
+    clearInterval(rolling)
+    winner()
+  }
+
 onload = function () {
-  const token = sessionStorage.getItem('token')
+  const token = sessionStorage.getItem('keyToken')
+  const username = sessionStorage.getItem('keyUsername')
+  levelMedium.style.display = "none"
+  levelHard.style.display = "none"
 
   if (token && token != null) {
     registerForm.style.display = "none"
     logoutForm.style.display = "block"
+    startSection.style.display = "block"
+    rewardSection.style.display = "block"
+    navbar.style.display = "block"
+    title.textContent = `Hello ${username} !`
+    nameAndToken.textContent= `${username} (Session Token : ${token})`
   } else {
     registerForm.style.display = "block"
     logoutForm.style.display = "none"
+    startSection.style.display = "none"
+    rewardSection.style.display = "none"
+    navbar.style.display = "none"
   }
+}
+
+function levelEasyButton(){
+  levelEasy.style.display = "flex"
+  levelMedium.style.display = "none"
+  levelHard.style.display = "none"
+}
+function levelMediumButton(){
+  levelEasy.style.display = "none"
+  levelMedium.style.display = "flex"
+  levelHard.style.display = "none"
+}
+function levelHardButton(){
+  levelEasy.style.display = "none"
+  levelMedium.style.display = "none"
+  levelHard.style.display = "flex"
 }
 
 function register() {
