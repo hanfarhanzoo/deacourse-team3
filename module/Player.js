@@ -22,6 +22,7 @@ class Player {
     get register() {
       sessionStorage.setItem('keyToken', this.generateToken())
       sessionStorage.setItem('keyUsername', username.value)
+      sessionStorage.setItem('keyDifficulty', "easy")
       registerForm.style.display = "none"
       logoutForm.style.display = "block"
       startSection.style.display = "block"
@@ -31,7 +32,7 @@ class Player {
       //declare variable untuk manggil username dan token
       const displayUsername = sessionStorage.getItem('keyUsername')
       const displayToken = sessionStorage.getItem('keyToken')
-      
+
       title.textContent = `Hello ${displayUsername} !`
       nameAndToken.textContent= `${displayUsername}(Session Token : ${displayToken})`
       setTimeout(function() {
@@ -42,6 +43,7 @@ class Player {
     get logout() {
       sessionStorage.removeItem('keyToken')
       sessionStorage.removeItem('keyUsername')
+      sessionStorage.removeItem('keyDifficulty')
       location.reload()
     }
   

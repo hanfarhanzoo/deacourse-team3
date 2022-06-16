@@ -3,11 +3,24 @@ const username = document.getElementById("username")
 const registerForm = document.getElementById("registerForm")
 const logoutForm = document.getElementById("logoutForm")
 const startSection = document.getElementById("start")
-const box1 = document.getElementById("box1")
-const box2 = document.getElementById("box2")
-const box3 = document.getElementById("box3")
-const box4 = document.getElementById("box4")
-const box5 = document.getElementById("box5")
+//declare box level-easy
+const boxE1 = document.getElementById("boxE1")
+const boxE2 = document.getElementById("boxE2")
+const boxE3 = document.getElementById("boxE3")
+//declare box level-medium
+const boxM1 = document.getElementById("boxM1")
+const boxM2 = document.getElementById("boxM2")
+const boxM3 = document.getElementById("boxM3")
+const boxM4 = document.getElementById("boxM4")
+//declare box level-hard
+const boxH1 = document.getElementById("boxH1")
+const boxH2 = document.getElementById("boxH2")
+const boxH3 = document.getElementById("boxH3")
+const boxH4 = document.getElementById("boxH4")
+const boxH5 = document.getElementById("boxH5")
+
+let difficulty = sessionStorage.getItem('keyDifficulty')
+
 const rewardImage = document.getElementById("imgReward")
 const title = document.getElementById("title")
 const rewardSection = document.getElementById("reward")
@@ -23,11 +36,11 @@ const player = new Player()
 
 
 let default_option = ['😍', '🤣', '😱']
-box1.textContent = default_option[0]
-box2.textContent = default_option[1]
-box3.textContent = default_option[2]
-box4.textContent = default_option[0]
-box5.textContent = default_option[1]
+boxE1.textContent = default_option[0]
+boxE2.textContent = default_option[1]
+boxE3.textContent = default_option[2]
+boxM1.textContent = default_option[0]
+boxM2.textContent = default_option[1]
 
 function dice() {
   let gacha = []
@@ -111,16 +124,25 @@ onload = function () {
 }
 
 function levelEasyButton(){
+  sessionStorage.setItem('keyDifficulty', "easy")
+  const difficulty = sessionStorage.getItem('keyDifficulty')
+  console.log("levelnya " + difficulty)
   levelEasy.style.display = "flex"
   levelMedium.style.display = "none"
   levelHard.style.display = "none"
 }
 function levelMediumButton(){
+  sessionStorage.setItem('keyDifficulty', "medium")
+  const difficulty = sessionStorage.getItem('keyDifficulty')
+  console.log("yang ini " + difficulty)
   levelEasy.style.display = "none"
   levelMedium.style.display = "flex"
   levelHard.style.display = "none"
 }
 function levelHardButton(){
+  sessionStorage.setItem('keyDifficulty', "hard")
+  const difficulty = sessionStorage.getItem('keyDifficulty')
+  console.log("nah ini " + difficulty)
   levelEasy.style.display = "none"
   levelMedium.style.display = "none"
   levelHard.style.display = "flex"
