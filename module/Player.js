@@ -27,13 +27,16 @@ class Player {
       startSection.style.display = "block"
       rewardSection.style.display = "block"
       navbar.style.display = "block"
-      const userName = sessionStorage.getItem('keyUsername')
-      title.textContent = `Hello ${userName} !`
-      nameAndToken.textContent= `${userName} (Session Token : ${token})`  
-      location.href="#start"
-      // setTimeout(function() {
-      //   location.href="#start"
-      // }, 500)
+
+      //declare variable untuk manggil username dan token
+      const displayUsername = sessionStorage.getItem('keyUsername')
+      const displayToken = sessionStorage.getItem('keyToken')
+      
+      title.textContent = `Hello ${displayUsername} !`
+      nameAndToken.textContent= `${displayUsername}(Session Token : ${displayToken})`
+      setTimeout(function() {
+        location.href="#start"
+      }, 500)
     }
   
     get logout() {
