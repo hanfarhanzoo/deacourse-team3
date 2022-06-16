@@ -93,8 +93,8 @@ onload = function () {
     startSection.style.display = "block"
     rewardSection.style.display = "block"
     navbar.style.display = "block"
-    title.textContent = `Hello ${username.value} !`
-    nameAndToken.textContent= "Test"
+    title.textContent = `Hello ${username} !`
+    nameAndToken.textContent= `${username} (Session Token : ${token})`
   } else {
     registerForm.style.display = "block"
     logoutForm.style.display = "none"

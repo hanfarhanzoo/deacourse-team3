@@ -6,7 +6,7 @@ class Player {
     generateToken() {
       const random = ~~[Math.random() * 10000]
       const token = this.username + random.toString()
-      return token
+      return token 
     }
   
     // setter method
@@ -27,15 +27,18 @@ class Player {
       startSection.style.display = "block"
       rewardSection.style.display = "block"
       navbar.style.display = "block"
-      nameAndToken.textContent= `waduh`
-      title.textContent = `Hello ${keyUsername} !`
-      setTimeout(function() {
-        location.href="#start"
-      }, 500)
+      const userName = sessionStorage.getItem('keyUsername')
+      title.textContent = `Hello ${userName} !`
+      nameAndToken.textContent= `${userName} (Session Token : ${token})`  
+      location.href="#start"
+      // setTimeout(function() {
+      //   location.href="#start"
+      // }, 500)
     }
   
     get logout() {
-      sessionStorage.removeItem('token')
+      sessionStorage.removeItem('keyToken')
+      sessionStorage.removeItem('keyUsername')
       location.reload()
     }
   
