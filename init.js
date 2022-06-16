@@ -67,7 +67,13 @@ function winner() {
 
 function start() {
   
-  rolling
+    //selama
+    const rolling = setInterval(function () {
+      const result = dice()
+      box1.textContent = result[0]
+      box2.textContent = result[1]
+      box3.textContent = result[2]
+    }, 100)
 
   //ketika
     setTimeout(function () {
